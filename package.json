@@ -15,12 +15,16 @@
     "@mui/material": "^5.15.10",
     "@tanstack/react-query": "^5.22.2",
     "@tanstack/react-router": "^1.16.6",
-    "axios": "^1.6.7",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zustand": "^4.5.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.2.4",
+    "@parcel/watcher": "^2.4.1",
     "@tanstack/eslint-plugin-query": "^5.20.1",
     "@tanstack/router-vite-plugin": "^1.16.5",
     "@types/react": "^18.2.56",
