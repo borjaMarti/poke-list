@@ -4,4 +4,5 @@ List your favorite Pokémon.
 
 ## Acknowledgements
 
-[pokenode-ts](https://github.com/Gabb-c/pokenode-ts): Type information.
+[PokeAPI](https://pokeapi.co/): API.
+[PokeAPI GraphiQL Interface](https://beta.pokeapi.co/graphql/console/): GraphQL query constructor.
