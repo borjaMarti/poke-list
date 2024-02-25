@@ -42,6 +42,7 @@ const PokemonCard = ({ pokemon, filtered }: PokemonCardProps) => {
             color: "red",
           },
         }}
+        aria-label={`Más detalles sobre ${pokemonName}`}
       >
         <CardMedia
           component="img"

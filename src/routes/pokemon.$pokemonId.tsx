@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import useCapturedStore from "src/hooks/use-captured-store";
+import useCapturedStore from "src/stores/use-captured-store";
 import usePokemonQuery from "src/hooks/use-pokemon-query";
 
 export const Route = createFileRoute("/pokemon/$pokemonId")({

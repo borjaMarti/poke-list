@@ -10,6 +10,7 @@ const CapturedLink = () => {
       to="/captured"
       component={RouterLink}
       startIcon={<CatchingPokemonIcon />}
+      aria-label="Enlace a Capturados"
     >
       Capturados
     </Button>

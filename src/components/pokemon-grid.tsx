@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Unstable_Grid2";
 import usePokemonListQuery from "src/hooks/use-pokemon-list-query";
-import useCapturedStore from "src/hooks/use-captured-store";
+import useCapturedStore from "src/stores/use-captured-store";
 import PokemonCard from "./pokemon-card";
 
 interface PokemonGridProps {

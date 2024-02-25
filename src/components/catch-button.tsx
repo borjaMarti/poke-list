@@ -1,5 +1,5 @@
 import { IconButton, Tooltip } from "@mui/material";
-import useCapturedStore from "src/hooks/use-captured-store";
+import useCapturedStore from "src/stores/use-captured-store";
 import { PokemonItem } from "src/types/types";
 import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 

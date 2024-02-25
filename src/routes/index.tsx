@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <Typography variant="h2" textAlign="center">
+      <Typography variant="h3" textAlign="center" component="h1">
         ¡Hazte con Todos!
       </Typography>
       <PokemonGrid filtered={false} />

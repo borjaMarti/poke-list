@@ -15,9 +15,10 @@ const Header = () => {
           flexWrap="wrap"
           sx={{ justifyContent: { xs: "center", sm: "space-between" } }}
           gap={2}
+          component="nav"
         >
-          <Link to="/" component={RouterLink}>
-            <img src="logo.png" />
+          <Link to="/" component={RouterLink} aria-label="Enlace a Inicio">
+            <img src="logo.png" alt="Logo de PokéList" />
           </Link>
           <CapturedLink />
         </Box>
