@@ -18,7 +18,7 @@ function RootComponent() {
         <Link to="/" className="[&.active]:font-bold">
           PokéList
         </Link>{" "}
-        <Link to="/capturados" className="[&.active]:font-bold">
+        <Link to="/captured" className="[&.active]:font-bold">
           Capturados
         </Link>
       </div>

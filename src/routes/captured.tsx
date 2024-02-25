@@ -1,9 +1,9 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import useCapturedStore from "src/hooks/use-captured-store";
 import usePokemonListQuery from "src/hooks/use-pokemon-list-query";
 import { Link } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute("/capturados")({
+export const Route = createFileRoute("/captured")({
   component: Captured,
 });
 

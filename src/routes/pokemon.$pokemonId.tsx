@@ -1,9 +1,17 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import useCapturedStore from "src/hooks/use-captured-store";
 import usePokemonQuery from "src/hooks/use-pokemon-query";
 
-export const Route = createLazyFileRoute("/pokemon/$pokemonId")({
+export const Route = createFileRoute("/pokemon/$pokemonId")({
   component: Pokemon,
+  loader: ({ params: { pokemonId } }) => {
+    if (+pokemonId < 1 || +pokemonId > 151) {
+      throw notFound();
+    }
+  },
+  notFoundComponent: () => {
+    return <p>¡Pokémon no encontrado!</p>;
+  },
 });
 
 function Pokemon() {
@@ -11,8 +19,6 @@ function Pokemon() {
   const { data: pokemon, isSuccess } = usePokemonQuery(+pokemonId);
   const { capturedPokemon, capturePokemon, releasePokemon } =
     useCapturedStore();
-
-  if (+pokemonId < 1 || +pokemonId > 151) return <div>Oooooopssss...</div>;
 
   return (
     <div className="p-2">
