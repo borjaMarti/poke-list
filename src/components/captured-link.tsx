@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import { Link as RouterLink } from "@tanstack/react-router";
+import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 
 const CapturedLink = () => {
   return (
@@ -8,6 +9,7 @@ const CapturedLink = () => {
       color="secondary"
       to="/captured"
       component={RouterLink}
+      startIcon={<CatchingPokemonIcon />}
     >
       Capturados
     </Button>
