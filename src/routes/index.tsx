@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import useCapturedStore from "src/hooks/use-captured-store";
 import usePokemonListQuery from "src/hooks/use-pokemon-list-query";
 
 export const Route = createFileRoute("/")({
@@ -7,6 +8,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { pokemonList } = usePokemonListQuery();
+  const { capturedPokemon, capturePokemon, releasePokemon } =
+    useCapturedStore();
 
   return (
     <div className="p-2">
@@ -19,6 +22,16 @@ function Index() {
                 pokemon.pokemon_v2_pokemonspecy
                   ?.pokemon_v2_pokemonspeciesnames[0].name
               }
+              <button
+                onClick={() => {
+                  if (capturedPokemon.has(pokemon.id))
+                    releasePokemon(pokemon.id);
+                  else capturePokemon(pokemon.id);
+                }}
+              >
+                CAPTURAR
+              </button>
+              {capturedPokemon.has(pokemon.id) ? "Capturado" : "Libre"}
             </li>
           ))}
         </ul>

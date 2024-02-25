@@ -25,10 +25,11 @@ const capturedStore = create<CapturedState>()(
             },
           };
         },
+        // Borja: I just spent the past hour debugging why the storage wasn't working as intended... Turns out that when I followed the Zustand's docs example on how to use Sets and Maps with localStorage, which was done using a Map, I also went with the .entries() method instead of .values(), resulting in strange behavior...
         setItem: (name, newValue) => {
           const str = JSON.stringify({
             state: {
-              captured: Array.from(newValue.state.captured.entries()),
+              captured: Array.from(newValue.state.captured.values()),
             },
           });
           localStorage.setItem(name, str);
@@ -51,10 +52,10 @@ export default function useCapturedStore() {
   // Borja: While for capturePokemon the .add method returns the updated Set, .delete just returns a boolean, so the update requires another step.
   const releasePokemon = (id: number) => {
     capturedStore.setState((prev) => {
-      const updatedCaptured = new Set(prev.captured);
-      updatedCaptured.delete(id);
+      const prevCaptured = new Set(prev.captured);
+      prevCaptured.delete(id);
       return {
-        captured: updatedCaptured,
+        captured: prevCaptured,
       };
     });
   };
