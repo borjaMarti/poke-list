@@ -9,6 +9,7 @@ import {
 import { Link as RouterLink } from "@tanstack/react-router";
 import { PokemonItem } from "src/types/types";
 import CatchButton from "./catch-button";
+import { parsePokemonId } from "src/utils/utils";
 
 interface PokemonCardProps {
   pokemon: PokemonItem;
@@ -37,6 +38,9 @@ const PokemonCard = ({ pokemon, filtered }: PokemonCardProps) => {
           "&:hover": {
             color: "red",
           },
+          "&:focus": {
+            color: "red",
+          },
         }}
       >
         <CardMedia
@@ -45,6 +49,7 @@ const PokemonCard = ({ pokemon, filtered }: PokemonCardProps) => {
           title={`Sprite de ${pokemonName}`}
         />
         <CardContent sx={{ textAlign: "center" }}>
+          <Typography>{parsePokemonId(pokemon.id)}</Typography>
           <Typography>{pokemonName}</Typography>
         </CardContent>
       </Link>
