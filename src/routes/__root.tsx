@@ -4,6 +4,7 @@ import {
   createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
+import { Container } from "@mui/material";
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
@@ -16,14 +17,16 @@ function RootComponent() {
     <>
       <div className="p-2 flex gap-2">
         <Link to="/" className="[&.active]:font-bold">
-          PokéList
+          <img src="logo.png" />
         </Link>{" "}
         <Link to="/captured" className="[&.active]:font-bold">
           Capturados
         </Link>
       </div>
       <hr />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
     </>
   );
 }
