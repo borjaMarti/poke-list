@@ -8,17 +8,24 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const { pokemonList } = usePokemonListQuery();
+  const { data: pokemonList, isSuccess } = usePokemonListQuery();
   const { capturedPokemon, capturePokemon, releasePokemon } =
     useCapturedStore();
 
   return (
     <div className="p-2">
       <h3>Welcome Home!</h3>
-      {pokemonList && (
+      {isSuccess && (
         <ul>
           {pokemonList.pokemon_v2_pokemon.map((pokemon) => (
             <li key={pokemon.id}>
+              <img
+                src={
+                  capturedPokemon.has(pokemon.id)
+                    ? pokemon.pokemon_v2_pokemonsprites[0].front_shiny
+                    : pokemon.pokemon_v2_pokemonsprites[0].front_default
+                }
+              />
               <Link
                 to="/pokemon/$pokemonId"
                 params={{ pokemonId: pokemon.id.toString() }}

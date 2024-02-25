@@ -20,11 +20,9 @@ const pokemonListQuery = graphql(/* GraphQL */ `
 `);
 
 export default function usePokemonListQuery() {
-  const { data } = useQuery({
+  return useQuery({
     queryKey: ["pokemonList"],
     queryFn: async () =>
       request("https://beta.pokeapi.co/graphql/v1beta", pokemonListQuery),
   });
-
-  return { pokemonList: data };
 }

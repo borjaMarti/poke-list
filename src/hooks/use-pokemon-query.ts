@@ -36,13 +36,11 @@ const pokemonQuery = graphql(/* GraphQL */ `
 `);
 
 export default function usePokemonQuery(pokemonId: number) {
-  const { data } = useQuery({
+  return useQuery({
     queryKey: ["pokemon", pokemonId],
     queryFn: async () =>
       request("https://beta.pokeapi.co/graphql/v1beta", pokemonQuery, {
         id: pokemonId,
       }),
   });
-
-  return { pokemon: data };
 }

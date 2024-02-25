@@ -8,7 +8,7 @@ export const Route = createLazyFileRoute("/pokemon/$pokemonId")({
 
 function Pokemon() {
   const { pokemonId } = Route.useParams();
-  const { pokemon } = usePokemonQuery(+pokemonId);
+  const { data: pokemon, isSuccess } = usePokemonQuery(+pokemonId);
   const { capturedPokemon, capturePokemon, releasePokemon } =
     useCapturedStore();
 
@@ -16,8 +16,13 @@ function Pokemon() {
 
   return (
     <div className="p-2">
-      {pokemon && (
+      {isSuccess && (
         <>
+          <img
+            src={
+              pokemon.pokemon_v2_pokemon[0].pokemon_v2_pokemonsprites[0].sprites
+            }
+          />
           <h3>
             {
               pokemon.pokemon_v2_pokemon[0].pokemon_v2_pokemonspecy
