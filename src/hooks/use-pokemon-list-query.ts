@@ -1,4 +1,4 @@
-import { graphql } from "../gql";
+import { graphql } from "src/gql";
 import { useQuery } from "@tanstack/react-query";
 import request from "graphql-request";
 
@@ -19,7 +19,7 @@ const pokemonListQuery = graphql(/* GraphQL */ `
   }
 `);
 
-export default function usePokemonList() {
+export default function usePokemonListQuery() {
   const { data } = useQuery({
     queryKey: ["pokemonList"],
     queryFn: async () =>

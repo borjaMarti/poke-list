@@ -3,12 +3,19 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-// Import the generated route tree
+// TanStack Router: Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 
-const queryClient = new QueryClient();
+// Borja: Since the data we are fetching isn't going to be mutated over a session, we set the cache time with the staleTime option to infinity.
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+    },
+  },
+});
 
-// Create a new router instance
+// TanStack Router: Create a new router instance
 const router = createRouter({
   routeTree,
   context: {
@@ -20,14 +27,14 @@ const router = createRouter({
   defaultPreloadStaleTime: 0,
 });
 
-// Register the router instance for type safety
+// TanStack Router: Register the router instance for type safety
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }
 }
 
-// Render the app
+// TanStack Router: Render the app
 const rootElement = document.getElementById("app")!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);

@@ -16,10 +16,10 @@ function RootComponent() {
     <>
       <div className="p-2 flex gap-2">
         <Link to="/" className="[&.active]:font-bold">
-          Home
+          PokéList
         </Link>{" "}
-        <Link to="/about" className="[&.active]:font-bold">
-          About
+        <Link to="/capturados" className="[&.active]:font-bold">
+          Capturados
         </Link>
       </div>
       <hr />

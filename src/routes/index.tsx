@@ -1,12 +1,12 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import usePokemonList from "../hooks/use-pokemon-list";
+import { createFileRoute } from "@tanstack/react-router";
+import usePokemonListQuery from "src/hooks/use-pokemon-list-query";
 
-export const Route = createLazyFileRoute("/")({
+export const Route = createFileRoute("/")({
   component: Index,
 });
 
 function Index() {
-  const { pokemonList } = usePokemonList();
+  const { pokemonList } = usePokemonListQuery();
 
   return (
     <div className="p-2">
