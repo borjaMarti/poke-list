@@ -18,6 +18,7 @@ import { Route as IndexImport } from './routes/index'
 // Create Virtual Routes
 
 const CapturadosLazyImport = createFileRoute('/capturados')()
+const PokemonPokemonIdLazyImport = createFileRoute('/pokemon/$pokemonId')()
 
 // Create/Update Routes
 
@@ -31,6 +32,13 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const PokemonPokemonIdLazyRoute = PokemonPokemonIdLazyImport.update({
+  path: '/pokemon/$pokemonId',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/pokemon.$pokemonId.lazy').then((d) => d.Route),
+)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -43,6 +51,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapturadosLazyImport
       parentRoute: typeof rootRoute
     }
+    '/pokemon/$pokemonId': {
+      preLoaderRoute: typeof PokemonPokemonIdLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -51,6 +63,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   CapturadosLazyRoute,
+  PokemonPokemonIdLazyRoute,
 ])
 
 /* prettier-ignore-end */
