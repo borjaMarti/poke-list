@@ -26,6 +26,8 @@
     "@graphql-codegen/client-preset": "^4.2.4",
     "@parcel/watcher": "^2.4.1",
     "@tanstack/eslint-plugin-query": "^5.20.1",
+    "@tanstack/react-query-devtools": "^5.24.1",
+    "@tanstack/router-devtools": "^1.17.1",
     "@tanstack/router-vite-plugin": "^1.16.5",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
