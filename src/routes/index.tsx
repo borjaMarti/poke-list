@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { createFileRoute } from "@tanstack/react-router";
 import PokemonGrid from "src/components/pokemon-grid";
 
@@ -8,7 +9,9 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <h3>Welcome Home!</h3>
+      <Typography variant="h2" textAlign="center">
+        ¡Hazte con Todos!
+      </Typography>
       <PokemonGrid filtered={false} />
     </>
   );

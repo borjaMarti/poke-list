@@ -4,7 +4,7 @@ import {
   createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
@@ -25,7 +25,15 @@ function RootComponent() {
       </div>
       <hr />
       <Container>
-        <Outlet />
+        <Box
+          my={6}
+          display="flex"
+          alignItems="center"
+          gap={6}
+          sx={{ flexDirection: "column" }}
+        >
+          <Outlet />
+        </Box>
       </Container>
     </>
   );

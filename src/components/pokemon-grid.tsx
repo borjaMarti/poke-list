@@ -3,16 +3,16 @@ import usePokemonListQuery from "src/hooks/use-pokemon-list-query";
 import useCapturedStore from "src/hooks/use-captured-store";
 import PokemonCard from "./pokemon-card";
 
-interface Props {
+interface PokemonGridProps {
   filtered: boolean;
 }
 
-const PokemonGrid = ({ filtered }: Props) => {
+const PokemonGrid = ({ filtered }: PokemonGridProps) => {
   const { data: pokemonList, isSuccess } = usePokemonListQuery();
   const { capturedPokemon } = useCapturedStore();
 
   return isSuccess ? (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} justifyContent="center">
       {pokemonList.pokemon_v2_pokemon.map((pokemon) => {
         if (filtered && !capturedPokemon.has(pokemon.id)) {
           return;
