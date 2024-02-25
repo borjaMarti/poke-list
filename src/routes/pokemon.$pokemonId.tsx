@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import useCapturedStore from "src/stores/use-captured-store";
 import usePokemonQuery from "src/hooks/use-pokemon-query";
+import { Typography } from "@mui/material";
 
 export const Route = createFileRoute("/pokemon/$pokemonId")({
   component: Pokemon,
@@ -10,7 +11,11 @@ export const Route = createFileRoute("/pokemon/$pokemonId")({
     }
   },
   notFoundComponent: () => {
-    return <p>¡Pokémon no encontrado!</p>;
+    return (
+      <Typography variant="h4" component="p">
+        ¡Pokémon no encontrado!
+      </Typography>
+    );
   },
 });
 
