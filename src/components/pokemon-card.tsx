@@ -20,7 +20,8 @@ const PokemonCard = ({ pokemon, filtered }: PokemonCardProps) => {
   const pokemonName =
     pokemon.pokemon_v2_pokemonspecy?.pokemon_v2_pokemonspeciesnames[0].name;
 
-  const isCaptured = (pokemon: PokemonItem) => {
+  // Borja: When we are on the /captured route, show shiny sprite.
+  const selectSprite = (pokemon: PokemonItem) => {
     return filtered
       ? pokemon.pokemon_v2_pokemonsprites[0].front_shiny
       : pokemon.pokemon_v2_pokemonsprites[0].front_default;
@@ -46,7 +47,7 @@ const PokemonCard = ({ pokemon, filtered }: PokemonCardProps) => {
       >
         <CardMedia
           component="img"
-          image={isCaptured(pokemon)}
+          image={selectSprite(pokemon)}
           title={`Sprite de ${pokemonName}`}
         />
         <CardContent sx={{ textAlign: "center" }}>

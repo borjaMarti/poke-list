@@ -8,6 +8,7 @@ interface CapturedState {
 
 const capturedStore = create<CapturedState>()(
   persist(
+    // Borja: Per zustand's documentation, mutations of a Set state are done through the store's setState method, instead of being created at the store.
     () => ({
       captured: new Set(),
     }),
@@ -40,6 +41,7 @@ const capturedStore = create<CapturedState>()(
   ),
 );
 
+// Borja: We export the store as a hook that returns the Set in state and two methods to mutate it, so we can ensure the mutations are done without modyfing the previous state.
 export default function useCapturedStore() {
   const capturedPokemon = capturedStore((state) => state.captured);
 
