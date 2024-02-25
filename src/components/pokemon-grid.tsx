@@ -23,7 +23,7 @@ const PokemonGrid = ({ filtered }: PokemonGridProps) => {
     return (
       <Grid container spacing={3} justifyContent="center">
         {pokemonList.pokemon_v2_pokemon.map((pokemon) => {
-          // Borja: If we are in the /captured page, only show pokemons that have been captured.
+          // Borja: If we are in the /captured page (indicated by filtered prop), only show Pokemon that have been captured.
           if (filtered && !capturedPokemon.has(pokemon.id)) {
             return;
           } else {
