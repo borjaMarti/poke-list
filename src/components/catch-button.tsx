@@ -1,38 +1,40 @@
 import { IconButton, Tooltip } from "@mui/material";
 import useCapturedStore from "src/stores/use-captured-store";
-import { PokemonItem } from "src/types/types";
 import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 
 interface CatchButtonProps {
-  pokemon: PokemonItem;
+  pokemonId: number;
+  fontSize: "small" | "large";
 }
 
-const CatchButton = ({ pokemon }: CatchButtonProps) => {
+const CatchButton = ({ pokemonId, fontSize }: CatchButtonProps) => {
   const { capturedPokemon, capturePokemon, releasePokemon } =
     useCapturedStore();
 
-  const isCaptured = (pokemon: PokemonItem) => {
-    return capturedPokemon.has(pokemon.id);
+  const isCaptured = (pokemonId: number) => {
+    return capturedPokemon.has(pokemonId);
   };
 
-  const handleCapture = (pokemon: PokemonItem) => {
-    if (capturedPokemon.has(pokemon.id)) {
-      releasePokemon(pokemon.id);
+  const handleCapture = (pokemonId: number) => {
+    if (capturedPokemon.has(pokemonId)) {
+      releasePokemon(pokemonId);
     } else {
-      capturePokemon(pokemon.id);
+      capturePokemon(pokemonId);
     }
   };
 
   return (
     <Tooltip
-      title={isCaptured(pokemon) ? "Soltar Pokémon" : "Capturar Pokémon"}
+      title={isCaptured(pokemonId) ? "Soltar Pokémon" : "Capturar Pokémon"}
     >
       <IconButton
-        onClick={() => handleCapture(pokemon)}
-        color={isCaptured(pokemon) ? "error" : "inherit"}
-        aria-label={isCaptured(pokemon) ? "Soltar Pokémon" : "Capturar Pokémon"}
+        onClick={() => handleCapture(pokemonId)}
+        color={isCaptured(pokemonId) ? "error" : "inherit"}
+        aria-label={
+          isCaptured(pokemonId) ? "Soltar Pokémon" : "Capturar Pokémon"
+        }
       >
-        <CatchingPokemonIcon />
+        <CatchingPokemonIcon fontSize={fontSize} />
       </IconButton>
     </Tooltip>
   );

@@ -56,7 +56,7 @@ const PokemonCard = ({ pokemon, filtered }: PokemonCardProps) => {
         </CardContent>
       </Link>
       <CardActions sx={{ justifyContent: "center" }}>
-        <CatchButton pokemon={pokemon} />
+        <CatchButton pokemonId={pokemon.id} fontSize="small" />
       </CardActions>
     </Card>
   );
