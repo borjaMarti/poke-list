@@ -6,7 +6,7 @@
 
 # PokéList
 
-### Enlace a demo
+### Enlace a la demo
 
 [https://poke-list-beta.vercel.app/](https://poke-list-beta.vercel.app/)
 
