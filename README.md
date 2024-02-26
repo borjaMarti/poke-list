@@ -1,3 +1,9 @@
+<p align="center">
+  <br>
+    <img src="./logo.png" height="70"/>
+  <br>
+</p>
+
 # PokeList
 
 List your favorite Pokémon.
