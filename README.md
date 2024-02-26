@@ -14,7 +14,7 @@
 
 - PokéList muestra un listado de los 151 Pokémon originales con su sprite y nombre.
 - Por toda la aplicación, podemos capturar o liberar Pokémon utilizando las Pokéballs.
-- Los Pokémon que capturados se mostrarán en la página de CAPTURADOS.
+- Los Pokémon capturados se mostrarán en la página de CAPTURADOS.
 - También podemos acceder a la entrada de la Pokédex de cada Pokémon haciendo click en el mismo.
 
 ## Objetivos personales para el proyecto
