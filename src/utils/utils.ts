@@ -7,6 +7,6 @@ export function parsePokemonDescription(description: string | undefined) {
   return description.replace(/\n/g, " ");
 }
 
-export function parseNumber(object: unknown): number {
-  return typeof object === "number" ? object : 0;
+export function isNumber(object: unknown): boolean {
+  return typeof object === "number" && object === object;
 }

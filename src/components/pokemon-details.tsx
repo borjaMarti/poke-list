@@ -1,10 +1,6 @@
 import { Box, CircularProgress, Paper, Stack, Typography } from "@mui/material";
 import usePokemonQuery from "src/hooks/use-pokemon-query";
-import {
-  parsePokemonId,
-  parsePokemonDescription,
-  parseNumber,
-} from "src/utils/utils";
+import { parsePokemonId, parsePokemonDescription } from "src/utils/utils";
 import CatchButton from "./catch-button";
 import { Fragment } from "react";
 
@@ -50,7 +46,7 @@ const PokemonDetails = ({ pokemonId }: PokemonDetailsProps) => {
               {`${parsePokemonId(pokemonId)} ${name}`.toUpperCase()}
             </Typography>
           </Stack>
-          <Typography>{`Peso: ${parseNumber(weight) / 10}kg | Altura: ${parseNumber(height) / 10}m`}</Typography>
+          <Typography>{`Peso: ${typeof weight === "number" && weight === weight ? weight / 10 : "??"}kg | Altura: ${typeof height === "number" && height === height ? height / 10 : "??"}m`}</Typography>
           <Typography>
             Tipo:{" "}
             {type?.map((type, i) => {

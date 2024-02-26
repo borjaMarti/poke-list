@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { parsePokemonId, parsePokemonDescription, parseNumber } from "./utils";
+import { parsePokemonId, parsePokemonDescription, isNumber } from "./utils";
 
 test("Parse Pokemon Id", () => {
   expect(parsePokemonId(1)).toBe("#001");
@@ -16,10 +16,14 @@ test("Parse Pokemon Description", () => {
   expect(parsePokemonDescription("")).toBe("Entrada no encontrada.");
 });
 
-test("Parse Number", () => {
-  expect(parseNumber(7)).toBe(7);
-  expect(parseNumber(42)).toBe(42);
-  expect(parseNumber(0)).toBe(0);
-  expect(parseNumber([])).toBe(0);
-  expect(parseNumber({})).toBe(0);
+test("Is Number", () => {
+  expect(isNumber(7)).toBe(true);
+  expect(isNumber(42)).toBe(true);
+  expect(isNumber(0)).toBe(true);
+  expect(isNumber(-99999)).toBe(true);
+  expect(isNumber(null)).toBe(false);
+  expect(isNumber(undefined)).toBe(false);
+  expect(isNumber(NaN)).toBe(false);
+  expect(isNumber([])).toBe(false);
+  expect(isNumber({})).toBe(false);
 });
