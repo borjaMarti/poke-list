@@ -25,13 +25,13 @@ const CatchButton = ({ pokemonId, fontSize }: CatchButtonProps) => {
 
   return (
     <Tooltip
-      title={isCaptured(pokemonId) ? "Soltar Pokémon" : "Capturar Pokémon"}
+      title={isCaptured(pokemonId) ? "Liberar Pokémon" : "Capturar Pokémon"}
     >
       <IconButton
         onClick={() => handleCapture(pokemonId)}
         color={isCaptured(pokemonId) ? "error" : "inherit"}
         aria-label={
-          isCaptured(pokemonId) ? "Soltar Pokémon" : "Capturar Pokémon"
+          isCaptured(pokemonId) ? "Liberar Pokémon" : "Capturar Pokémon"
         }
       >
         <CatchingPokemonIcon fontSize={fontSize} />
