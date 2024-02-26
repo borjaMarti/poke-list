@@ -26,7 +26,6 @@ const capturedStore = create<CapturedState>()(
             },
           };
         },
-        // Borja: I just spent the past hour debugging why the storage wasn't working as intended... Turns out that when I followed the Zustand's docs example on how to use Sets and Maps with localStorage, which was done using a Map, I also went with the .entries() method instead of .values(), resulting in strange behavior...
         setItem: (name, newValue) => {
           const str = JSON.stringify({
             state: {
