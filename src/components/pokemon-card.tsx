@@ -49,6 +49,7 @@ const PokemonCard = ({ pokemon, filtered }: PokemonCardProps) => {
           component="img"
           image={selectSprite(pokemon)}
           title={`Sprite de ${pokemonName}`}
+          sx={{ aspectRatio: 1 / 1 }}
         />
         <CardContent sx={{ textAlign: "center" }}>
           <Typography>{parsePokemonId(pokemon.id)}</Typography>
